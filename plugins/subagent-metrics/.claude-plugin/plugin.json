@@ -1,0 +1,9 @@
+{
+  "name": "subagent-metrics",
+  "version": "0.1.0",
+  "description": "Automatically captures Claude Code subagent metrics (tokens, tools, duration) and logs them to noob-tester sessions",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

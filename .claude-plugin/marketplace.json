@@ -11,7 +11,28 @@
       "description": "Bitbucket CLI (bb) expertise for managing pull requests, pipelines, and repositories from the command line",
       "source": "./plugins/bb",
       "category": "productivity",
-      "tags": ["bitbucket", "cli", "pull-requests", "pipelines", "ci-cd", "devops"]
+      "tags": [
+        "bitbucket",
+        "cli",
+        "pull-requests",
+        "pipelines",
+        "ci-cd",
+        "devops"
+      ]
+    },
+    {
+      "name": "subagent-metrics",
+      "description": "Automatically captures Claude Code subagent metrics (tokens, tools, duration) and logs them to noob-tester sessions",
+      "source": "./plugins/subagent-metrics",
+      "category": "observability",
+      "tags": [
+        "metrics",
+        "subagent",
+        "tokens",
+        "hooks",
+        "noob-tester",
+        "monitoring"
+      ]
     }
   ]
 }
