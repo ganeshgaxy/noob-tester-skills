@@ -1,0 +1,17 @@
+{
+  "name": "noob-tester-skills",
+  "owner": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@gmail.com"
+  },
+  "repository": "https://github.com/ganeshgaxy/noob-tester-skills",
+  "plugins": [
+    {
+      "name": "bb",
+      "description": "Bitbucket CLI (bb) expertise for managing pull requests, pipelines, and repositories from the command line",
+      "source": "./plugins/bb",
+      "category": "productivity",
+      "tags": ["bitbucket", "cli", "pull-requests", "pipelines", "ci-cd", "devops"]
+    }
+  ]
+}
