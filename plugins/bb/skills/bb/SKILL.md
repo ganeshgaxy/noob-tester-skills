@@ -1,5 +1,5 @@
 ---
-name: bb-skill
+name: bb
 description: Bitbucket CLI expertise for managing pull requests, pipelines, and repositories from the command line
 ---
 
