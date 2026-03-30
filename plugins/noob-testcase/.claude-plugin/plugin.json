@@ -1,0 +1,9 @@
+{
+  "name": "noob-testcase",
+  "version": "0.1.0",
+  "description": "Generate BDD and traditional test cases from tickets with deep codebase analysis. Produces direct functional, impact regression, and general regression test cases.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

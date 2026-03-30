@@ -1,0 +1,9 @@
+{
+  "name": "noob-tester",
+  "version": "0.1.0",
+  "description": "Automated QA tester for web applications. Can run full test cycles or individual phases — analysis, test case generation, planning, browser exploration, reporting.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "noob-ticket-cache",
+  "version": "0.1.0",
+  "description": "Fetch and cache all ticket context (Jira, Confluence) using cache-first pattern. Run before any skill that needs ticket data. Outputs cached context types for downstream skills.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

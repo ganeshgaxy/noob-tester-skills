@@ -1,0 +1,9 @@
+{
+  "name": "noob-mr-pr",
+  "version": "0.1.0",
+  "description": "Take a ticket ID and MR/PR link from the user, detect the provider (GitHub/Bitbucket/GitLab), and fetch MR/PR details using the appropriate CLI tool (gh/bb/glab).",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

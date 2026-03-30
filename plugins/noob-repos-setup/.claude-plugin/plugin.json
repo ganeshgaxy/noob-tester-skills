@@ -1,0 +1,9 @@
+{
+  "name": "noob-repos-setup",
+  "version": "0.1.0",
+  "description": "Validate, clone, sync, and index a user-provided SSH repo URL for a ticket. Runs setup-for-ticket, returns repo paths.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

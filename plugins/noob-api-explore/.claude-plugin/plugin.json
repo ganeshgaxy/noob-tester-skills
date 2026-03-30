@@ -1,0 +1,9 @@
+{
+  "name": "noob-api-explore",
+  "version": "0.1.0",
+  "description": "Execute ALL api-layer test cases in one invocation using curl/jq. Reads codebase once, authenticates per role, loops through every API test, validates responses, cleans up.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

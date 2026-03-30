@@ -1,0 +1,9 @@
+{
+  "name": "noob-rca",
+  "version": "0.1.0",
+  "description": "Root cause analysis — classify failures (env/flaky/bug/data/network), update patterns, suggest actions. Run after test execution.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

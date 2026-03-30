@@ -1,0 +1,9 @@
+{
+  "name": "noob-explore",
+  "version": "0.1.0",
+  "description": "Execute UI test cases via browser automation. Uses run packs for tracking, UI maps for learning, capture-page for evidence. One test case per invocation.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

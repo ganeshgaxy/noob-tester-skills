@@ -1,0 +1,9 @@
+{
+  "name": "noob-report",
+  "version": "0.1.0",
+  "description": "Generate comprehensive test report — analyses, plans, test cases, execution results, issues, RCA, accessibility. Determine verdict, notify Slack, update ticket.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

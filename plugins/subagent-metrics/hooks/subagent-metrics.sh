@@ -8,6 +8,10 @@ set -euo pipefail
 # Read stdin JSON
 INPUT=$(cat)
 
+exec 2>>/tmp/hook-debug.log
+echo "=== $(date) ===" >&2
+echo "INPUT: $INPUT" >&2
+
 TRANSCRIPT=$(echo "$INPUT" | jq -r '.agent_transcript_path // empty')
 LAST_MSG=$(echo "$INPUT" | jq -r '.last_assistant_message // empty')
 
@@ -16,8 +20,14 @@ if [[ -z "$TRANSCRIPT" || ! -f "$TRANSCRIPT" ]]; then
   exit 0
 fi
 
-# Extract noob-tester session ID from agent's last message (first UUID found)
-NOOB_SESSION=$(echo "$LAST_MSG" | grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | head -1)
+# Extract noob-tester session ID from agent's last message
+# Look for "Session: <UUID>" or "Session ID: <UUID>" pattern (not just first UUID,
+# which may be a map ID, runpack ID, or tech issue ID)
+NOOB_SESSION=$(echo "$LAST_MSG" | grep -oiP '(?:session(?:\s*id)?[:\s*`]+)\K[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | tail -1)
+# Fallback: first UUID if no "Session:" pattern found
+if [[ -z "$NOOB_SESSION" ]]; then
+  NOOB_SESSION=$(echo "$LAST_MSG" | grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | head -1)
+fi
 
 if [[ -z "$NOOB_SESSION" ]]; then
   exit 0

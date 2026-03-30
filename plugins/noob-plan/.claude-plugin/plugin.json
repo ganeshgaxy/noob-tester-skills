@@ -1,0 +1,9 @@
+{
+  "name": "noob-plan",
+  "version": "0.1.0",
+  "description": "Create a test plan for a dev-complete ticket. Reads MRs, analyzes code diffs, checks deployed target, produces plan with steps, blockers, coverage gaps.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

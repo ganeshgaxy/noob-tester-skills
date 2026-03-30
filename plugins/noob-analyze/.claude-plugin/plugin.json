@@ -1,0 +1,9 @@
+{
+  "name": "noob-analyze",
+  "version": "0.1.0",
+  "description": "Deep analysis of a ticket — gap, requirements, feasibility, and impact analysis against the codebase. Runs before development starts.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

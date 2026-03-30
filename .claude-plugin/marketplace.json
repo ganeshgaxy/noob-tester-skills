@@ -33,6 +33,153 @@
         "noob-tester",
         "monitoring"
       ]
+    },
+    {
+      "name": "noob-tester",
+      "description": "Automated QA tester for web applications. Can run full test cycles or individual phases — analysis, test case generation, planning, browser exploration, reporting.",
+      "source": "./plugins/noob-tester",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "testing",
+        "automation",
+        "noob-tester",
+        "orchestrator"
+      ]
+    },
+    {
+      "name": "noob-analyze",
+      "description": "Deep analysis of a ticket — gap, requirements, feasibility, and impact analysis against the codebase. Runs before development starts.",
+      "source": "./plugins/noob-analyze",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "analysis",
+        "requirements",
+        "impact",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-plan",
+      "description": "Create a test plan for a dev-complete ticket. Reads MRs, analyzes code diffs, checks deployed target, produces plan with steps, blockers, coverage gaps.",
+      "source": "./plugins/noob-plan",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "test-plan",
+        "planning",
+        "coverage",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-testcase",
+      "description": "Generate BDD and traditional test cases from tickets with deep codebase analysis. Produces direct functional, impact regression, and general regression test cases.",
+      "source": "./plugins/noob-testcase",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "test-cases",
+        "bdd",
+        "regression",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-explore",
+      "description": "Execute UI test cases via browser automation. Uses run packs for tracking, UI maps for learning, capture-page for evidence. One test case per invocation.",
+      "source": "./plugins/noob-explore",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "browser",
+        "ui-testing",
+        "automation",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-api-explore",
+      "description": "Execute ALL api-layer test cases in one invocation using curl/jq. Reads codebase once, authenticates per role, loops through every API test, validates responses, cleans up.",
+      "source": "./plugins/noob-api-explore",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "api-testing",
+        "curl",
+        "endpoints",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-rca",
+      "description": "Root cause analysis — classify failures (env/flaky/bug/data/network), update patterns, suggest actions. Run after test execution.",
+      "source": "./plugins/noob-rca",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "rca",
+        "root-cause",
+        "failure-analysis",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-report",
+      "description": "Generate comprehensive test report — analyses, plans, test cases, execution results, issues, RCA, accessibility. Determine verdict, notify Slack, update ticket.",
+      "source": "./plugins/noob-report",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "reporting",
+        "verdict",
+        "accessibility",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-mr-pr",
+      "description": "Take a ticket ID and MR/PR link, detect provider (GitHub/Bitbucket/GitLab), fetch MR/PR details and diff using the appropriate CLI tool (gh/bb/glab).",
+      "source": "./plugins/noob-mr-pr",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "merge-request",
+        "pull-request",
+        "github",
+        "gitlab",
+        "bitbucket",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-repos-setup",
+      "description": "Validate, clone, sync, and index a user-provided SSH repo URL for a ticket. Runs setup-for-ticket, returns repo paths.",
+      "source": "./plugins/noob-repos-setup",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "repos",
+        "clone",
+        "codebase",
+        "indexing",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-ticket-cache",
+      "description": "Fetch and cache all ticket context (Jira, Confluence) using cache-first pattern. Run before any skill that needs ticket data.",
+      "source": "./plugins/noob-ticket-cache",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "ticket",
+        "cache",
+        "jira",
+        "confluence",
+        "noob-tester"
+      ]
     }
   ]
 }
