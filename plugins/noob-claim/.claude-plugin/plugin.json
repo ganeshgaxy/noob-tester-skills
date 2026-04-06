@@ -1,0 +1,9 @@
+{
+  "name": "noob-claim",
+  "version": "0.1.0",
+  "description": "Claim test cases from run packs. Supports claiming next unclaimed test, claiming by name (with validation), and retrying specific tests.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

@@ -100,6 +100,19 @@
       ]
     },
     {
+      "name": "noob-claim",
+      "description": "Claim test cases from run packs. Supports claiming next unclaimed test, claiming by name (with validation), and retrying specific tests.",
+      "source": "./plugins/noob-claim",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "test-cases",
+        "claiming",
+        "run-packs",
+        "noob-tester"
+      ]
+    },
+    {
       "name": "noob-api-explore",
       "description": "Execute ALL api-layer test cases in one invocation using curl/jq. Reads codebase once, authenticates per role, loops through every API test, validates responses, cleans up.",
       "source": "./plugins/noob-api-explore",
