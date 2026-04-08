@@ -38,6 +38,13 @@ SESSION_ID=$(echo "$INIT" | jq -r '.sessionId')
 RUN_ID=$(echo "$INIT" | jq -r '.runId')
 RUNPACK_ID=$(echo "$INIT" | jq -r '.runPackId')
 EVIDENCE_DIR=$(echo "$INIT" | jq -r '.evidenceDir')
+STREAM_PORT=$(echo "$INIT" | jq -r '.streamPort')
+
+# Enable live browser stream on the assigned port (disable first in case already streaming on a different port)
+if [ -n "$STREAM_PORT" ] && [ "$STREAM_PORT" != "null" ]; then
+  agent-browser stream disable 2>/dev/null
+  agent-browser stream enable --port "$STREAM_PORT"
+fi
 
 # Create UI map so ALL captures get --map
 MAP_ID=$(noob-tester uimap resolve --ticket <TICKET-ID> --target <TARGET_URL> | jq -r '.id // empty')
@@ -154,6 +161,38 @@ CAPTURE=$(noob-tester capture-page --run $RUN_ID --url "<page-url>" --action $AC
 # Track page ID for navigation chain
 PREV_PAGE_ID=$(echo "$CAPTURE" | jq -r '.pageId // empty')
 ```
+
+## File Uploads
+
+When a test step requires uploading a file (file input, drag-and-drop zone, etc.):
+
+```bash
+# 1. List registered default files to find what's available
+FILES=$(noob-tester files list --json)
+echo "$FILES" | jq '.[] | {label, file_path, file_type}'
+
+# 2. Pick the right file for the test (by type or label)
+UPLOAD_PATH=$(echo "$FILES" | jq -r '.[] | select(.file_type == "pdf") | .file_path' | head -1)
+# Or by label:
+UPLOAD_PATH=$(echo "$FILES" | jq -r '.[] | select(.label == "Sample Resume") | .file_path' | head -1)
+
+# 3. Upload using agent-browser — target the file input element from the snapshot
+# Read the snapshot first to find the file input ref (e.g. @e12)
+agent-browser upload '@fileInputRef' "$UPLOAD_PATH"
+agent-browser wait 2000
+
+# 4. Capture after upload to verify
+noob-tester capture-page --run $RUN_ID --url "$(agent-browser get url)" --action $ACTION_N \
+  --pack $RUNPACK_ID --entry $ENTRY_ID --session $SESSION_ID --ticket <TICKET-ID> \
+  --desc "File uploaded" --page-name "after-upload" \
+  --map $MAP_ID --page-title "After Upload"
+```
+
+**Rules:**
+
+- ALWAYS use `noob-tester files list` to get real file paths — NEVER hardcode or guess paths
+- If no suitable file exists, log it: `noob-tester runpack log $ENTRY_ID --text "No PDF file registered — skipping upload step"`
+- The `agent-browser upload` command targets a `<input type="file">` element using the `@eN` ref from the snapshot
 
 ## 5. Execute Test Steps
 
@@ -302,6 +341,7 @@ noob-tester runpack result $ENTRY_ID --status failed \
 
 ```bash
 noob-tester session heartbeat $SESSION_ID --phase 4
+agent-browser stream disable
 agent-browser close
 noob-tester session end $SESSION_ID --status completed
 # Run stays open for next invocation — only complete when ALL test cases done
