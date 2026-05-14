@@ -1,0 +1,9 @@
+{
+  "name": "noob-visual-claim",
+  "version": "0.1.0",
+  "description": "Claim the next visual test case from a visual run. Supports creating a new run (first invocation) or resuming an existing one. Returns $CLAIM for noob-visual to execute.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

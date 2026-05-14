@@ -193,6 +193,61 @@
         "confluence",
         "noob-tester"
       ]
+    },
+    {
+      "name": "noob-visual",
+      "description": "Execute ONE pre-claimed visual test case (BDD/traditional format with visual_steps config). Baseline mode captures screenshots, verification mode does pixel-by-pixel diffs. Includes trace, profiler, console, and error collection.",
+      "source": "./plugins/noob-visual",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "visual-testing",
+        "screenshots",
+        "pixel-diff",
+        "baseline",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-visual-claim",
+      "description": "Claim the next visual test case from a visual run. Supports creating a new run (first invocation) or resuming an existing one. Returns $CLAIM for noob-visual to execute.",
+      "source": "./plugins/noob-visual-claim",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "visual-testing",
+        "claiming",
+        "run-packs",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-visual-rca",
+      "description": "Visual root cause analysis — classify visual diff failures (visual_regression, intentional_change, env_issue, flaky_render, threshold_issue), file issues for real regressions. Run after a visual verification run completes.",
+      "source": "./plugins/noob-visual-rca",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "visual-testing",
+        "rca",
+        "root-cause",
+        "failure-analysis",
+        "noob-tester"
+      ]
+    },
+    {
+      "name": "noob-visual-testcase",
+      "description": "Generate visual test cases (BDD/traditional + visual steps config) from tickets. Maps test steps to visual capture config (screenshot vs snapshot, full-page vs scoped, per-step thresholds).",
+      "source": "./plugins/noob-visual-testcase",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "visual-testing",
+        "test-cases",
+        "bdd",
+        "screenshots",
+        "noob-tester"
+      ]
     }
   ]
 }

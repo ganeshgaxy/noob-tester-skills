@@ -1,0 +1,9 @@
+{
+  "name": "noob-visual-testcase",
+  "version": "0.1.0",
+  "description": "Generate visual test cases (BDD/traditional + visual steps config) from tickets. Maps test steps to visual capture config (screenshot vs snapshot, full-page vs scoped, per-step thresholds).",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

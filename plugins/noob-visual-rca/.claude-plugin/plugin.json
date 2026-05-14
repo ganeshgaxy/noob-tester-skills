@@ -1,0 +1,9 @@
+{
+  "name": "noob-visual-rca",
+  "version": "0.1.0",
+  "description": "Visual root cause analysis — classify visual diff failures (visual_regression, intentional_change, env_issue, flaky_render, threshold_issue), file issues for real regressions. Run after a visual verification run completes.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}

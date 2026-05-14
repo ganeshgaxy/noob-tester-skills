@@ -1,0 +1,9 @@
+{
+  "name": "noob-visual",
+  "version": "0.1.0",
+  "description": "Execute ONE pre-claimed visual test case (BDD/traditional format with visual_steps config). Baseline mode captures screenshots, verification mode does pixel-by-pixel diffs. Includes trace, profiler, console, and error collection.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}
