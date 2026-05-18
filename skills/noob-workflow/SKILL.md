@@ -13,18 +13,25 @@ Register a ticket ID in the workflow system so its full lifecycle can be tracked
 # /noob-workflow <TICKET-ID>
 ```
 
-## Steps
+## 1. Create Session
 
-### 1. Check if ticket is already registered
+```bash
+INIT=$(noob-tester init --ticket <TICKET-ID> --task "Workflow setup: <TICKET-ID>" --labels "workflow")
+SESSION_ID=$(echo "$INIT" | jq -r '.sessionId')
+RUN_ID=$(echo "$INIT" | jq -r '.runId')
+noob-tester session heartbeat $SESSION_ID --phase 1 --run-id $RUN_ID
+```
+
+## 2. Check if ticket is already registered
 
 ```bash
 EXISTING=$(noob-tester ticket-workflow get <TICKET-ID> --json 2>/dev/null)
 STATUS=$(echo "$EXISTING" | jq -r '.status // empty')
 ```
 
-If `STATUS` is non-empty, the ticket already exists. Skip to step 3 to report current state instead of re-adding.
+If `STATUS` is non-empty, the ticket already exists — skip to step 4 to report current state.
 
-### 2. Register the ticket
+## 3. Register the ticket
 
 ```bash
 RESULT=$(noob-tester ticket-workflow add <TICKET-ID> --json)
@@ -37,9 +44,11 @@ This creates a row with:
 - `active: 0`
 - `added_at`: current timestamp
 
-### 3. Confirm and report state
+## 4. Confirm and report state
 
 ```bash
+noob-tester log action $RUN_ID --phase 1 --agent workflow --description "Ticket <TICKET-ID> registered in workflow"
+
 SUMMARY=$(noob-tester ticket-workflow get <TICKET-ID> --json)
 echo "$SUMMARY"
 ```
@@ -49,6 +58,16 @@ Report back:
 - `status`
 - `added_at`
 - Any pre-existing linked data: `run_count`, `analysis_count`, `plan_count`, `test_case_count`, `issue_count`, `blocker_count`
+
+## 5. Complete
+
+```bash
+noob-tester finish --run $RUN_ID --session $SESSION_ID --summary "Workflow setup complete for <TICKET-ID>"
+```
+
+**IMPORTANT: Include the session ID in your final message to the user** (needed for metrics hook):
+
+> Done. Session: $SESSION_ID
 
 ## Output
 
