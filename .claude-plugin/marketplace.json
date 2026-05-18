@@ -248,6 +248,20 @@
         "screenshots",
         "noob-tester"
       ]
+    },
+    {
+      "name": "noob-workflow",
+      "description": "Register a new ticket ID into the ticket_workflow table and set it up for processing. Run this first when a ticket enters the QA pool. Creates the canonical workflow record that all other skills (analyze, plan, test) track against.",
+      "source": "./plugins/noob-workflow",
+      "category": "testing",
+      "tags": [
+        "qa",
+        "workflow",
+        "ticket",
+        "setup",
+        "orchestration",
+        "noob-tester"
+      ]
     }
   ]
 }

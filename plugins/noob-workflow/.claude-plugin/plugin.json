@@ -1,0 +1,9 @@
+{
+  "name": "noob-workflow",
+  "version": "0.1.0",
+  "description": "Register a new ticket ID into the ticket_workflow table and set it up for processing. Run this first when a ticket enters the QA pool. Creates the canonical workflow record that all other skills (analyze, plan, test) track against.",
+  "author": {
+    "name": "Ganeshan Manickam",
+    "email": "ganeshgaxy@github.com"
+  }
+}
